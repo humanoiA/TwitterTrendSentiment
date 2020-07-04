@@ -1,13 +1,9 @@
 <!DOCTYPE HTML>
-<!--
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 
 <head>
-	<title>Stellar by HTML5 UP</title>
+	<title>Twitter Sentiment for trends</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
@@ -184,6 +180,9 @@
 			<!-- Introduction -->
 			<section id="intro" class="main">
 				<div class="w3-container w3-mobile w3-center">
+					<h1>
+						Top 10 Trends
+					</h1>
 					<div class="row">
 						<div class="col w3-half">
 							<button id=1 onclick="myfunction(this.id)">{{ trend1 }}</button>
@@ -614,7 +613,7 @@ window.scrollTo(scrollPosition[0], scrollPosition[1]);
 					}, 500)
 
 					console.log('Output: ', out);
-				}).catch(err => console.error(err));
+				}).catch(err => alert('API Rate Exceeded'));
 
 			console.log(trend)
 
@@ -676,7 +675,7 @@ window.scrollTo(scrollPosition[0], scrollPosition[1]);
 					}, 500)
 
 					console.log('Output: ', out);
-				}).catch(err => console.error(err));
+				}).catch(err => alert('API Rate Exceeded'));
 
 			console.log(trend)
 
