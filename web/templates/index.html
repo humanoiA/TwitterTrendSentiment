@@ -155,7 +155,6 @@
 }
 }
 </style>
-	<!-- Wrapper -->
 	<div id="wrapper">
 
 		<!-- Header -->
@@ -166,7 +165,6 @@
 			</p>
 		</header>
 
-		<!-- Nav -->
 		<nav id="nav">
 			<ul>
 				<li><a href="#intro" class="active">Current Trends</a></li>
@@ -174,10 +172,8 @@
 			</ul>
 		</nav>
 
-		<!-- Main -->
 		<div id="main">
 
-			<!-- Introduction -->
 			<section id="intro" class="main">
 				<div class="w3-container w3-mobile w3-center">
 					<h1>
@@ -245,6 +241,9 @@
 									class="w3-button w3-large w3-display-topright">&times;</span>
 								<h2>Sentiment Analysis</h2>
 							</header>
+							<footer>
+								<br>
+							</footer>
 							<div class="w3-container">
 								<style>
 									.wrap {
@@ -341,11 +340,6 @@
   opacity: 1;
 }
 
-/*
-=====
-LEVEL 2. CORE STYLES
-=====
-*/
 
 .a-field{
   display: inline-block;
@@ -361,13 +355,6 @@ LEVEL 2. CORE STYLES
   outline: none;
 }
 
-/*
-=====
-LEVEL 3. PRESENTATION STYLES
-=====
-*/
-
-/* a-field */
 
 .a-field{
   --uiFieldHeight: var(--fieldHeight, 2.5rem);  
@@ -449,8 +436,6 @@ LEVEL 3. PRESENTATION STYLES
   bottom: var(--uiFieldHeight);
 }
 
-/* a-field_a1 */
-
 .a-field_a1 .a-field__input{
   transition: border-color .2s ease-out;
   will-change: border-color;
@@ -460,7 +445,6 @@ LEVEL 3. PRESENTATION STYLES
   border-color: var(--fieldBorderColorActive);
 }
 
-/* a-field_a2 */
 
 .a-field_a2 .a-field__label-wrap::after{
   content: "";
@@ -481,7 +465,7 @@ LEVEL 3. PRESENTATION STYLES
   width: 100%;
 }
 
-/* a-field_a3 */
+
 
 .a-field_a3{
   padding-top: 1.5rem;
@@ -513,11 +497,7 @@ LEVEL 3. PRESENTATION STYLES
   bottom: calc(var(--uiFieldHeight) + .5em);
 }
 
-/*
-=====
-LEVEL 4. SETTINGS
-=====
-*/
+
 
 .field{
   --fieldBorderColor: #D1C4E9;
@@ -542,7 +522,7 @@ LEVEL 4. SETTINGS
 
 		</div>
 
-		<!-- Footer -->
+	
 		<footer id="footer">
 			<section>
 				<h2>Created By</h2>
@@ -552,7 +532,7 @@ LEVEL 4. SETTINGS
 
 	</div>
 
-	<!-- Scripts -->
+	
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -565,17 +545,17 @@ LEVEL 4. SETTINGS
 			console.log(buttonId)
 			var trend = document.getElementById(buttonId).innerHTML;
 			document.getElementById("loading").style.display = 'block';
-			// lock scroll position, but retain settings for later
+			
 var scrollPosition = [
   self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
   self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
 ];
-var html = jQuery('html'); // it would make more sense to apply this to body, but IE7 won't have that
+var html = jQuery('html'); 
 html.data('scroll-position', scrollPosition);
 html.data('previous-overflow', html.css('overflow'));
 html.css('overflow', 'hidden');
 window.scrollTo(scrollPosition[0], scrollPosition[1]);
-			fetch('http://127.0.0.1:5000/api/' + trend)
+			fetch('https://sentimenttwittertrend.herokuapp.com/api/' + trend)
 				.then(res => res.json())
 				.then((out) => {
 					var neg = out.Negative * 100;
@@ -617,11 +597,7 @@ window.scrollTo(scrollPosition[0], scrollPosition[1]);
 
 			console.log(trend)
 
-			/*fetch('http://127.0.0.1:5000/api/' + trend)
-				.then(res => res.json())
-				.then((out) => {
-					console.log('Output: ', out);
-				}).catch(err => console.error(err));*/
+			
 		}
 		function myfunction2(buttonId) {
 			console.log(buttonId)
@@ -632,12 +608,12 @@ var scrollPosition = [
   self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
   self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
 ];
-var html = jQuery('html'); // it would make more sense to apply this to body, but IE7 won't have that
+var html = jQuery('html'); 
 html.data('scroll-position', scrollPosition);
 html.data('previous-overflow', html.css('overflow'));
 html.css('overflow', 'hidden');
 window.scrollTo(scrollPosition[0], scrollPosition[1]);
-			fetch('http://127.0.0.1:5000/api/' + trend)
+			fetch('https://sentimenttwittertrend.herokuapp.com/api/' + trend)
 				.then(res => res.json())
 				.then((out) => {
 					var neg = out.Negative * 100;
@@ -679,7 +655,7 @@ window.scrollTo(scrollPosition[0], scrollPosition[1]);
 
 			console.log(trend)
 
-			/*fetch('http://127.0.0.1:5000/api/' + trend)
+			/*fetch('https://sentimenttwittertrend.herokuapp.com/api/' + trend)
 				.then(res => res.json())
 				.then((out) => {
 					console.log('Output: ', out);
