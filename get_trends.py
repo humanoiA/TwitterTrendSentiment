@@ -55,7 +55,7 @@ def get_sentiments(trend_name):
         tweet_clean=" ".join(tweet_token)
         #print(tweet_clean)
         listOfTweets=listOfTweets.append(pd.Series(tweet_clean),ignore_index=True)
-        if count==100:
+        if count==30:
             break
     listOfTweets.drop_duplicates(keep='first', inplace=True)
     print(listOfTweets)
