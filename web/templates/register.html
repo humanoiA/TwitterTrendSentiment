@@ -1,0 +1,33 @@
+<head>
+    <title>Twitter Sentiment Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+        </div>
+      <form action="/register" method="post">
+        <input type="text" id="login" class="fadeIn second" placeholder="Enter new Username" name="username" value="{{ request.form.username }}">
+         <input type="password" id="password" class="fadeIn third" placeholder="Enter new Password" name="password" value="{{ request.form.password }}">
+        <input class="fadeIn fourth" value="Log In" type="submit">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+      <div id="formFooter">
+        <a class="underlineHover" href="/login">Login</a>
+      </div>
+  
+    </div>
+  </div>
+  </body>
+</html>

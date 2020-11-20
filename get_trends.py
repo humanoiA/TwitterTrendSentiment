@@ -20,13 +20,14 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 pd.set_option('display.max_colwidth', -1)
 api = tweepy.API(auth)
 def trends():
-    data = api.trends_place(2352824, '#')
+    data = api.trends_place(2282863, '#')
     trends = data[0]["trends"]
 # Remove trends with no Tweet volume data
     trends = filter(itemgetter("tweet_volume"), trends)
 # Alternatively, using 0 during sorting would work as well:
 # sorted(trends, key=lambda trend: trend["tweet_volume"] or 0, reverse=True)
     sorted_trends = sorted(trends, key=itemgetter("tweet_volume"), reverse=True)
+    #print(sorted_trends[:15])
     return sorted_trends[:10]
 def get_sentiments(trend_name):
     infile=open('data.pkl','rb')
@@ -64,3 +65,4 @@ def get_sentiments(trend_name):
     return predictionNum[0]/(predictionNum[0]+predictionNum[4])
     #print(predictionNum[4]/(predictionNum[0]+predictionNum[4]))
 #get_sentiments('Independence Day')
+trends()
